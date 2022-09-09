@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 
 const MiApi = () => {
 
-    const [buscarPersonajes, setBuscarPersonajes] = useState('');    // aqui se guardaran los valores traidos de la api
-    const [personajes, setPersonajes] = useState([]); //endpoint de personajes tambien estados
-    const [sortOrder, setSortOrder] = useState('');   // estados para orden 
+    const [buscarPersonajes, setBuscarPersonajes] = useState('');    
+    const [personajes, setPersonajes] = useState([]); 
+    const [sortOrder, setSortOrder] = useState('');  
 
-        const consultarInformacion = async () => {                                         //aqui consultamos la api
+        const consultarInformacion = async () => {                                       
         const url = 'https://fedeperin-harry-potter-api.herokuapp.com/personajes';
         const response = await fetch(url)
         const data = await response.json()
@@ -20,15 +20,15 @@ const MiApi = () => {
 
 
     }
-    useEffect(() => {                                 //funcion que consume la api
+    useEffect(() => {                               
         consultarInformacion();
 
 
     }, []);
 
 
-    const filtrarPorPersonaje = (e) => {  //creamos el evento
-        setBuscarPersonajes(e.target.value);  //recuperamos el valor de ese elemento
+    const filtrarPorPersonaje = (e) => {  
+        setBuscarPersonajes(e.target.value); 
     }
     return (
         <div className='bg-dark'>
